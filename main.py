@@ -4,6 +4,17 @@ from smartcard.util import toHexString
 from smartcard.Exceptions import CardConnectionException, NoCardException
 import requests
 import time
+import logging
+import sys
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/home/lailaolabdev/nfc-check-in-check-out/nfc-reader.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
 
 API_URL = "https://hr-api.lailaolab.com/v1/api/entry-exit/nfc"
 
